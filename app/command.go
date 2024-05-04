@@ -1,13 +1,16 @@
 package app
 
-import "os"
+import (
+	"errors"
+	"os"
+)
 
 type Command struct {
 	command string
 	value   string
 }
 
-func Capture() Command {
+func Capture() (Command, error) {
 
 	if len(os.Args) < 3 {
 
@@ -20,8 +23,20 @@ func Capture() Command {
 		Help()
 	}
 
-	return Command{
-		command: os.Args[1],
-		value:   os.Args[2],
+	if os.Args[1] == "message" {
+
+		return Command{
+			command: "message",
+			value:   os.Args[2],
+		}, nil
+	} else if os.Args[1] == "file" {
+
+		return Command{
+			command: "file",
+			value:   os.Args[2],
+		}, nil
 	}
+
+	return Command{}, errors.New("The command is not supported")
+
 }

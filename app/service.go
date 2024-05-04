@@ -8,7 +8,12 @@ func StartTheApp() (bool, error) {
 
 	telegram := NewTelegram(&config)
 
-	command := Capture()
+	command, err := Capture()
+
+	if err != nil {
+
+		DD(err)
+	}
 
 	if command.command == "message" {
 
