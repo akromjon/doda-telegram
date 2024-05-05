@@ -2,7 +2,7 @@
 
 **USAGE**: <br>
 `doda-cli message <message>`- this sends message.<br>
-`doda-cli file <file path>` - send local, files on servers.
+`doda-cli file <file path>` - send files on servers, local.
 
 **Installation**<br>
 ```
