@@ -14,7 +14,7 @@ type Config struct {
 
 func Boot() (Config, error) {
 
-	err := godotenv.Load()
+	err := godotenv.Load("/usr/local/bin/.env")
 
 	if err != nil {
 
