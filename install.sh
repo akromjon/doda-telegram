@@ -16,12 +16,12 @@ case "$(uname -sm)" in
 esac
 
 echo "Downloading $FILENAME from github releases"
-if ! curl -sSLf "$URL_PREFIX/$FILENAME" -o "$INSTALL_DIR/doda-cli"; then
+if ! sudo curl -sSLf "$URL_PREFIX/$FILENAME" -o "$INSTALL_DIR/doda-cli"; then
   echo "Failed to write to $INSTALL_DIR; try with sudo" >&2
   exit 1
 fi
 
-if ! chmod +x "$INSTALL_DIR/doda-cli"; then
+if ! sudo chmod +x "$INSTALL_DIR/doda-cli"; then
   echo "Failed to set executable permission on $INSTALL_DIR/doda-cli" >&2
   exit 1
 fi
